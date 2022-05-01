@@ -51,10 +51,17 @@
                 liffId: liffId
             }).then(() => {
                 //Start to use liff's api
-                //initializeApp();
+                initializeApp();
             }).catch((err) => {
                 console.log('LIFF Initialization failed', err);
             })
+        }
+        
+        function initializeApp() {
+               let profile = getProfile();
+               alert(profile.id);
+               alert(profile.name);
+               alert(profile.accessToken);
         }
 
         function sendText(text){
