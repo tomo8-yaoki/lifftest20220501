@@ -63,6 +63,21 @@
                alert(profile.name);
                alert(profile.accessToken);
         }
+        
+        function getProfile(){
+          liff.getProfile().then(function(profile) {
+             let userID = profile.userId;
+             let userName =  profile.displayName;
+             let accessToken = liff.getAccessToken();
+             let obj = new Object();
+             obj.id = userID;
+             obj.name = userName;
+             obj.accessToken = accessToken;
+             return obj;
+          }).catch(function(error) {
+             window.alert('Error getting profile: ' + error);
+          });
+        }
 
         function sendText(text){
             liff.sendMessage([{
